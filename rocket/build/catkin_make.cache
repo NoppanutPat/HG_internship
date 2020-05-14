@@ -1,0 +1,2 @@
+bottle_rocket:sky_rocket
+-DCATKIN_DEVEL_PREFIX=/home/pat/HG_internship/rocket/devel -DCMAKE_INSTALL_PREFIX=/home/pat/HG_internship/rocket/install -G Unix Makefiles

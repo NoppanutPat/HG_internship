@@ -1,0 +1,8 @@
+prefix=/home/pat/HG_internship/ASV/asv_ros/devel
+
+Name: freefloating_gazebo
+Description: Description of freefloating_gazebo
+Version: 1.1.0
+Cflags: -I/home/pat/HG_internship/ASV/asv_ros/devel/include -I/home/pat/HG_internship/ASV/asv_ros/src/freefloating_gazebo/include
+Libs: -L${prefix}/lib -lfreefloating_gazebo
+Requires: roscpp std_msgs std_srvs gazebo_msgs geometry_msgs sensor_msgs control_toolbox rostime nav_msgs message_runtime

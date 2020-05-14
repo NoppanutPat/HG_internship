@@ -1,0 +1,233 @@
+<?xml version="1.0"?>
+<robot name="rocket/rocket">
+  <material name="Red">
+      <color rgba="0.8 0.0 0.0 1.0"/>
+    </material>
+
+  <macro name="cylinder_inertia" params="m r h">
+    <inertia  ixx="${m*(3*r*r+h*h)/12}" ixy = "0.00001" ixz = "0.00001"
+              iyy="${m*(3*r*r+h*h)/12}" iyz = "0.00001"
+              izz="${m*r*r/2}" /> 
+  </macro>
+
+  <macro name="sphere_inertia" params="m r">
+    <inertia  ixx="${2*m*r*r/5}" ixy = "0.00001" ixz = "0.00001"
+              iyy="${2*m*r*r/5}" iyz = "0.00001"
+              izz="${2*m*r*r/5}" /> 
+  </macro>
+
+  <link name="body">
+    <inertial>
+      <mass value="549054"/>
+      <origin xyz="0.00001 0.00001 35"/>
+      <cylinder_inertia  m="549054" r="1.85" h="70" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 35"/>
+      <geometry>
+        <cylinder length="70" radius="1.85"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 35"/>
+      <geometry>
+        <cylinder length="70" radius="1.85"/>
+      </geometry>
+    </collision>
+  </link>
+
+    <gazebo reference="body">
+      <material>Gazebo/Red</material>
+      <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+
+  <link name="s_body">
+    <inertial>
+      <mass value="4000"/>
+      <origin xyz="0.00001 0.00001 70"/>
+      <sphere_inertia m = "4000" r = "1.85" />
+    </inertial>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 70"/>
+      <geometry>
+        <sphere radius="1.85"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 70"/>
+      <geometry>
+        <sphere radius="1.85"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <gazebo reference="s_body">
+      <material>Gazebo/Red</material>
+      <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+
+  <joint name="joint_body_s_body" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="body"/>
+    <child link="s_body"/>
+  </joint>
+
+ <link name="base">
+    <inertial>
+      <mass value="0.000001"/>
+      <origin xyz="0.00001 0.00001 0.00005"/>
+      <cylinder_inertia  m="1" r="1.85" h="0.0001" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0.00005"/>
+      <geometry>
+        <cylinder length="0.0001" radius="1.85"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.00005"/>
+      <geometry>
+        <cylinder length="0.0001" radius="1.85"/>
+      </geometry>
+    </collision>
+  </link>
+
+   <gazebo reference="base">
+      <material>Gazebo/Blue</material>
+      <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+
+  <joint name="joint_body_base" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="body"/>
+    <child link="base"/>
+  </joint>
+
+  <property name="camera_link_size" value="0.5" /> 
+  <property name="PI" value="3.1415926535897931" />
+
+  <link name="camera_adj">
+  </link>
+  
+  <joint name="camera_optical_joint" type="fixed">
+        <origin xyz="0 -35.925 35.925" rpy="0.0 ${-PI/2} ${-PI/2}" />
+        <parent link="camera_adj" />
+        <child link="camera_link"/>
+  </joint>
+
+  <joint name="camera_joint" type="fixed">
+    <origin xyz="0 0 35.925" rpy="0 0 0"/>
+    <parent link="s_body"/>
+    <child link="camera_adj"/>
+  </joint>
+
+  <link name="camera_link">
+    <collision>
+      <origin xyz="0 0 35.925" rpy="0 0 0"/>
+      <geometry>
+    <box size="${camera_link_size} ${camera_link_size} ${camera_link_size}"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 35.925" rpy="0 0 0"/>
+      <geometry>
+    <box size="${camera_link_size} ${camera_link_size} ${camera_link_size}"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+
+  </link>
+
+  <gazebo reference="camera_link">
+    <material>Gazebo/Blue</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
+   <gazebo reference="camera_link">
+    <sensor type="camera" name="camera1">
+      <update_rate>30.0</update_rate>
+      <camera name="camera1">
+        <horizontal_fov>1.3962634</horizontal_fov>
+        <!-- <horizontal_fov>1.0</horizontal_fov> -->
+        <image>
+          <width>800</width>
+          <height>800</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <!-- Noise is sampled independently per pixel on each frame.
+               That pixel's noise value is added to each of its color
+               channels, which at that point lie in the range [0,1]. -->
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>10.0</updateRate>
+        <cameraName>camera1</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>camera_link</frameName>
+        <hackBaseline>1.57</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+
+  <gazebo>
+    <plugin name="body_lift" filename="libLiftDragPlugin.so">
+
+      <!-- taken from the lift curve figure -->
+      <!-- alpha_0 is 5 degrees -->
+      <a0>0.08727</a0>
+      <!-- alpha_stall is 19.3 degrees -->
+      <alpha_stall>0.3368</alpha_stall>
+      <!-- slope of the lift curve to the left of the stall angle -->
+      <cla>5.418</cla>
+      <!-- slope of the lift curve to the right of the stall angle -->
+      <cla_stall>-2.1419</cla_stall>
+
+      <cda>0.0001</cda>
+      <cda_stall>0.0001</cda_stall>
+      <cma>0.0001</cma>
+      <cma_stall>0.0001</cma_stall>
+      <area>2.969</area>
+      <fluid_density>1.225</fluid_density>
+      <forward>1 0.001 0.001</forward>
+      <upward>-1 0.001 1</upward>
+      <cp>0.001 0.001 1.5</cp>
+      <link_name>body</link_name>
+      <radial_symmetry>true</radial_symmetry>
+    </plugin>
+  </gazebo>
+
+  <gazebo>
+      <plugin name="gazebo_base_force" filename="librocket_engine_plugins.so">
+        <alwaysOn>true</alwaysOn>
+        <update>100</update>
+        <updateRate>100.0</updateRate>
+        <bodyName>base</bodyName>
+        <topicName>engine_force</topicName>
+      </plugin>
+    </gazebo>
+
+</robot>

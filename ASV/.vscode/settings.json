@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "core": "cpp",
+        "*.ipp": "cpp"
+    }
+}

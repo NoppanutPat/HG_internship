@@ -1,0 +1,8 @@
+prefix=/home/pat/HG_internship/rocket/devel
+
+Name: bottle_rocket
+Description: Description of bottle_rocket
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

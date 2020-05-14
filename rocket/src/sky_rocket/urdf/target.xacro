@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<robot name="target"> 
+
+    <material name="Red">
+      <color rgba="0.8 0.0 0.0 1.0"/>
+    </material>
+
+    <link name="world"/>
+
+    <gazebo reference="world"/>
+    
+
+    <link name="target">
+        <inertial>
+            <mass value="1"/>
+            <origin xyz="0.00001 0.00001 1.5"/>
+            <inertia ixx="0.009" ixy="0" ixz="0" iyy="0.009" iyz="0" izz="0.009"/>
+        </inertial>
+        <visual>
+            <origin rpy="0.00001 0.00001 0.00001" xyz="8 8 250"/>
+            <geometry>
+                <cylinder length="0.1" radius="10"/>
+            </geometry>
+        </visual> 
+        <collision>
+            <origin rpy="0 0 0" xyz="8 8 250"/>
+            <geometry>
+                <cylinder length="0.1" radius="10"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <gazebo reference="target">
+        <material>Gazebo/Red</material>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+
+    <joint name="world_target" type="fixed">
+        <origin rpy="0 0 0" xyz="8 8 5"/>
+        <parent link="world"/>
+        <child link="target"/>
+    </joint>
+
+</robot>

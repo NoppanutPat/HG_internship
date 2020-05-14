@@ -1,0 +1,26 @@
+<gazebo>
+    <plugin name="body_lift" filename="libLiftDragPlugin.so">
+
+          <!-- taken from the lift curve figure -->
+          <!-- alpha_0 is 5 degrees -->
+          <a0>0.08727</a0>
+          <!-- alpha_stall is 19.3 degrees -->
+          <alpha_stall>0.3368</alpha_stall>
+          <!-- slope of the lift curve to the left of the stall angle -->
+          <cla>5.418</cla>
+          <!-- slope of the lift curve to the right of the stall angle -->
+          <cla_stall>-2.1419</cla_stall>
+
+          <cda>0.0001</cda>
+          <cda_stall>0.0001</cda_stall>
+          <cma>0.0001</cma>
+          <cma_stall>0.0001</cma_stall>
+          <area>2.969</area>
+          <fluid_density>1.225</fluid_density>
+          <forward>1 0.001 0.001</forward>
+          <upward>-1 0.001 1</upward>
+          <cp>0.001 0.001 1.5</cp>
+          <link_name>body</link_name>
+          <radial_symmetry>true</radial_symmetry>
+        </plugin>
+    </gazebo>

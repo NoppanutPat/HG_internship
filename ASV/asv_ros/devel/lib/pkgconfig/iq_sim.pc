@@ -1,0 +1,8 @@
+prefix=/home/pat/HG_internship/ASV/asv_ros/devel
+
+Name: iq_sim
+Description: Description of iq_sim
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: roscpp gazebo_ros
