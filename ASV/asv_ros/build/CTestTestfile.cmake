@@ -7,4 +7,4 @@
 subdirs("gtest")
 subdirs("iq_gnc")
 subdirs("freefloating_gazebo")
-subdirs("iq_sim")
+subdirs("HG_boat_sim")
