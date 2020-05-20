@@ -1,0 +1,3 @@
+[submodule "Fusion360-to-SDF-Exporter"]
+	path = Fusion360-to-SDF-Exporter
+	url = https://github.com/benef23/Fusion360-to-SDF-Exporter.git
