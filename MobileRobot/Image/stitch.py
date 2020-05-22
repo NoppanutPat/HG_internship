@@ -6,6 +6,7 @@ import time
 import numpy as np
 import lib_cam_caribrate
 import parser
+import os
 
 name_counter = 0
 
@@ -16,7 +17,7 @@ def save_image(frame):
 
     name_counter += 1
 
-    path = "/home/pat/HG_internship/MobileRobot/video/image_group/"+str(name_counter)+".png"
+    path = "/home/pat/HG_internship/MobileRobot/video/image_group/pic_"+str(name_counter)+".png"
 
     cv2.imwrite(path,frame)
 
@@ -34,6 +35,10 @@ count = 0
 list_result = []
 
 add = 0
+
+del_path = "/home/pat/HG_internship/MobileRobot/video/image_group/*.png"
+
+os.system("rm "+del_path)
 
 while success:
 
@@ -87,7 +92,8 @@ while success:
 
     # stitch the images together to create a panorama
     stitcher = Stitcher()
-    re = stitcher.stitch([imageA, imageB], showMatches=True)
+
+    re = stitcher.stitch([imageA, imageB] , ratio = 0.85 , reprojThresh = 5.0 , showMatches=True )
 
     if type(re) == type(None):
         save_image(result)
@@ -100,10 +106,8 @@ while success:
 
     cv2.imshow("Image A", imageA)
     cv2.imshow("Image B", imageB)
-
-    result = result[:,:len(result[0])-1]
-
     cv2.imshow("Result", result)
+    cv2.imshow("Vis", vis)
 
     count += 1
 

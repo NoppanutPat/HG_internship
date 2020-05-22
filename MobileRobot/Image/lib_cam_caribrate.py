@@ -6,6 +6,7 @@ import glob
 import sys
 
 def undistort(img):
+    
     DIM , K , D = load_coefficients("/home/pat/HG_internship/MobileRobot/camera.yml")
     DIM = tuple(DIM)
     K = np.array(K)
@@ -29,9 +30,10 @@ def trim(frame):
     #crop left
     elif not np.sum(frame[:,0]):
         return trim(frame[:,1:]) 
-    #crop right
+    #crop right    
     elif not np.sum(frame[:,-1]):
-        return trim(frame[:,:-2])    
+        return trim(frame[:,:-2])  
+
     return frame
 
 def save_coefficients(DIM, K, D , path):
