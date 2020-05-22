@@ -2,6 +2,7 @@ import numpy as np
 import cv2
 import glob
 import argparse
+import imutils
 
 # termination criteria
 criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 30, 0.001)
@@ -20,8 +21,19 @@ def calibrate(dirpath, image_format, square_size, width=9, height=6):
         dirpath = dirpath[:-1]
     images = glob.glob(dirpath+'/' + '*.' + image_format) #
 
+    number = 0
+
     for fname in images:
+        number += 1
+        # if number in [14,16]:
+        #     continue
         img = cv2.imread(fname)
+        # img = img[142:,:]
+        # img = imutils.rotate_bound(img, 180)
+        print("Shape : ",img.shape[:2])
+        print("number : ",number)
+
+
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         # Find the chess board corners
         ret, corners = cv2.findChessboardCorners(gray, (width, height), None)
@@ -32,8 +44,8 @@ def calibrate(dirpath, image_format, square_size, width=9, height=6):
             imgpoints.append(corners2)
             # Draw and display the corners
             img = cv2.drawChessboardCorners(img, (width, height), corners2, ret)
-        # cv2.imshow("Chessboard",img)
-        # cv2.waitKey(1)
+        cv2.imshow("Chessboard",img)
+        cv2.waitKey(1)
     ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, gray.shape[::-1], None, None)
     # print([ret, mtx, dist, rvecs, tvecs])
     return [ret, mtx, dist, rvecs, tvecs]
@@ -68,7 +80,7 @@ if __name__ == "__main__":
     parser.add_argument('--square_size', type=float, required=False, help='chessboard square size')
     parser.add_argument('--width', type=int, required=False, help='chessboard width size, default is 9')
     parser.add_argument('--height', type=int, required=False, help='chessboard height size, default is 6')
-    parser.add_argument('--save_file', type=str, required=False, help='YML file to save calibration matrices')
+    parser.add_argument('--save_file', type=str, required=True, help='YML file to save calibration matrices')
 
     args = parser.parse_args()
     ret, mtx, dist, rvecs, tvecs = calibrate(args.image_dir, args.image_format, args.square_size, args.width, args.height)

@@ -44,7 +44,9 @@ add = 0
 
 while success:
 
-    if count < 100:
+    if count < 100 or count > 295:
+        if count > 295:
+            break
         success , image = cap.read()
         print(count)
 
@@ -55,6 +57,7 @@ while success:
         continue
 
     success , image = cap.read()
+    image = cv2.imread("/home/pat/HG_internship/MobileRobot/video/006/batch_001.png")
     print(count)
 
     # print(result)
@@ -76,6 +79,7 @@ while success:
     elif add == 0:
         print("Trigger image")
         success , image = cap.read()
+        image = cv2.imread("/home/pat/HG_internship/MobileRobot/video/006/batch_001.png")
         imageA = image
         # imageA = imutils.resize(imageA, width=400)
         # imageA = imageA[140:170 , 60:340]
@@ -84,20 +88,22 @@ while success:
     else:
         imageA = result
 
-    h,  w = imageA.shape[:2]
-    newcameramtxA, roi=cv2.getOptimalNewCameraMatrix(mtx,dist,(w,h),1,(w,h))
-    mapx,mapy = cv2.initUndistortRectifyMap(mtx,dist,None,newcameramtxA,(w,h),5)
-    dst = cv2.remap(imageA,mapx,mapy,cv2.INTER_LINEAR)
+    # h,  w = imageA.shape[:2]
+    # newcameramtxA, roi=cv2.getOptimalNewCameraMatrix(mtx,dist,(w,h),1,(w,h))
+    # mapx,mapy = cv2.initUndistortRectifyMap(mtx,dist,None,newcameramtxA,(w,h),5)
+    # dst = cv2.remap(imageA,mapx,mapy,cv2.INTER_LINEAR)
 
-    # x,y,w,h = roi
-    # dst = dst[y:y+h, x:x+w]
-    imageA = dst
+    # # x,y,w,h = roi
+    # # dst = dst[y:y+h, x:x+w]
+    # imageA = dst
 
     success , image = cap.read()
+    image = cv2.imread("/home/pat/HG_internship/MobileRobot/video/006/batch_001.png")
 
     while not success:
 
         success , image = cap.read()
+        image = cv2.imread("/home/pat/HG_internship/MobileRobot/video/006/batch_001.png")
         print("waiting for success")
         break
 
