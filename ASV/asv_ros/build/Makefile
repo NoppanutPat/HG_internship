@@ -1815,7 +1815,7 @@ nodelet_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 nodelet_generate_messages_py/fast:
-	$(MAKE) -f HG_boat_sim/CMakeFiles/nodelet_generate_messages_py.dir/build.make HG_boat_sim/CMakeFiles/nodelet_generate_messages_py.dir/build
+	$(MAKE) -f hg_boat_sim/CMakeFiles/nodelet_generate_messages_py.dir/build.make hg_boat_sim/CMakeFiles/nodelet_generate_messages_py.dir/build
 .PHONY : nodelet_generate_messages_py/fast
 
 #=============================================================================
@@ -1828,7 +1828,7 @@ bond_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 bond_generate_messages_nodejs/fast:
-	$(MAKE) -f HG_boat_sim/CMakeFiles/bond_generate_messages_nodejs.dir/build.make HG_boat_sim/CMakeFiles/bond_generate_messages_nodejs.dir/build
+	$(MAKE) -f hg_boat_sim/CMakeFiles/bond_generate_messages_nodejs.dir/build.make hg_boat_sim/CMakeFiles/bond_generate_messages_nodejs.dir/build
 .PHONY : bond_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -1841,7 +1841,7 @@ nodelet_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 nodelet_generate_messages_lisp/fast:
-	$(MAKE) -f HG_boat_sim/CMakeFiles/nodelet_generate_messages_lisp.dir/build.make HG_boat_sim/CMakeFiles/nodelet_generate_messages_lisp.dir/build
+	$(MAKE) -f hg_boat_sim/CMakeFiles/nodelet_generate_messages_lisp.dir/build.make hg_boat_sim/CMakeFiles/nodelet_generate_messages_lisp.dir/build
 .PHONY : nodelet_generate_messages_lisp/fast
 
 #=============================================================================
@@ -1854,7 +1854,7 @@ tf_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 tf_generate_messages_cpp/fast:
-	$(MAKE) -f HG_boat_sim/CMakeFiles/tf_generate_messages_cpp.dir/build.make HG_boat_sim/CMakeFiles/tf_generate_messages_cpp.dir/build
+	$(MAKE) -f hg_boat_sim/CMakeFiles/tf_generate_messages_cpp.dir/build.make hg_boat_sim/CMakeFiles/tf_generate_messages_cpp.dir/build
 .PHONY : tf_generate_messages_cpp/fast
 
 #=============================================================================
@@ -1867,7 +1867,7 @@ controller_manager_msgs_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 controller_manager_msgs_generate_messages_eus/fast:
-	$(MAKE) -f HG_boat_sim/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/build.make HG_boat_sim/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/build
+	$(MAKE) -f hg_boat_sim/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/build.make hg_boat_sim/CMakeFiles/controller_manager_msgs_generate_messages_eus.dir/build
 .PHONY : controller_manager_msgs_generate_messages_eus/fast
 
 #=============================================================================
@@ -1880,7 +1880,7 @@ gazebo_plugins_gencfg: cmake_check_build_system
 
 # fast build rule for target.
 gazebo_plugins_gencfg/fast:
-	$(MAKE) -f HG_boat_sim/CMakeFiles/gazebo_plugins_gencfg.dir/build.make HG_boat_sim/CMakeFiles/gazebo_plugins_gencfg.dir/build
+	$(MAKE) -f hg_boat_sim/CMakeFiles/gazebo_plugins_gencfg.dir/build.make hg_boat_sim/CMakeFiles/gazebo_plugins_gencfg.dir/build
 .PHONY : gazebo_plugins_gencfg/fast
 
 #=============================================================================
@@ -1893,7 +1893,7 @@ nodelet_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 nodelet_generate_messages_nodejs/fast:
-	$(MAKE) -f HG_boat_sim/CMakeFiles/nodelet_generate_messages_nodejs.dir/build.make HG_boat_sim/CMakeFiles/nodelet_generate_messages_nodejs.dir/build
+	$(MAKE) -f hg_boat_sim/CMakeFiles/nodelet_generate_messages_nodejs.dir/build.make hg_boat_sim/CMakeFiles/nodelet_generate_messages_nodejs.dir/build
 .PHONY : nodelet_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -1906,7 +1906,7 @@ WavefieldModelPlugin: cmake_check_build_system
 
 # fast build rule for target.
 WavefieldModelPlugin/fast:
-	$(MAKE) -f HG_boat_sim/CMakeFiles/WavefieldModelPlugin.dir/build.make HG_boat_sim/CMakeFiles/WavefieldModelPlugin.dir/build
+	$(MAKE) -f hg_boat_sim/CMakeFiles/WavefieldModelPlugin.dir/build.make hg_boat_sim/CMakeFiles/WavefieldModelPlugin.dir/build
 .PHONY : WavefieldModelPlugin/fast
 
 #=============================================================================
@@ -1919,7 +1919,7 @@ gazebo_ros_gencfg: cmake_check_build_system
 
 # fast build rule for target.
 gazebo_ros_gencfg/fast:
-	$(MAKE) -f HG_boat_sim/CMakeFiles/gazebo_ros_gencfg.dir/build.make HG_boat_sim/CMakeFiles/gazebo_ros_gencfg.dir/build
+	$(MAKE) -f hg_boat_sim/CMakeFiles/gazebo_ros_gencfg.dir/build.make hg_boat_sim/CMakeFiles/gazebo_ros_gencfg.dir/build
 .PHONY : gazebo_ros_gencfg/fast
 
 #=============================================================================
@@ -1932,7 +1932,7 @@ usv_gazebo_thrust_plugin: cmake_check_build_system
 
 # fast build rule for target.
 usv_gazebo_thrust_plugin/fast:
-	$(MAKE) -f HG_boat_sim/CMakeFiles/usv_gazebo_thrust_plugin.dir/build.make HG_boat_sim/CMakeFiles/usv_gazebo_thrust_plugin.dir/build
+	$(MAKE) -f hg_boat_sim/CMakeFiles/usv_gazebo_thrust_plugin.dir/build.make hg_boat_sim/CMakeFiles/usv_gazebo_thrust_plugin.dir/build
 .PHONY : usv_gazebo_thrust_plugin/fast
 
 #=============================================================================
@@ -1945,7 +1945,7 @@ bond_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 bond_generate_messages_lisp/fast:
-	$(MAKE) -f HG_boat_sim/CMakeFiles/bond_generate_messages_lisp.dir/build.make HG_boat_sim/CMakeFiles/bond_generate_messages_lisp.dir/build
+	$(MAKE) -f hg_boat_sim/CMakeFiles/bond_generate_messages_lisp.dir/build.make hg_boat_sim/CMakeFiles/bond_generate_messages_lisp.dir/build
 .PHONY : bond_generate_messages_lisp/fast
 
 #=============================================================================
@@ -1958,7 +1958,7 @@ tf_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 tf_generate_messages_py/fast:
-	$(MAKE) -f HG_boat_sim/CMakeFiles/tf_generate_messages_py.dir/build.make HG_boat_sim/CMakeFiles/tf_generate_messages_py.dir/build
+	$(MAKE) -f hg_boat_sim/CMakeFiles/tf_generate_messages_py.dir/build.make hg_boat_sim/CMakeFiles/tf_generate_messages_py.dir/build
 .PHONY : tf_generate_messages_py/fast
 
 #=============================================================================
@@ -1971,7 +1971,7 @@ nodelet_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 nodelet_generate_messages_eus/fast:
-	$(MAKE) -f HG_boat_sim/CMakeFiles/nodelet_generate_messages_eus.dir/build.make HG_boat_sim/CMakeFiles/nodelet_generate_messages_eus.dir/build
+	$(MAKE) -f hg_boat_sim/CMakeFiles/nodelet_generate_messages_eus.dir/build.make hg_boat_sim/CMakeFiles/nodelet_generate_messages_eus.dir/build
 .PHONY : nodelet_generate_messages_eus/fast
 
 #=============================================================================
@@ -1984,7 +1984,7 @@ bond_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 bond_generate_messages_cpp/fast:
-	$(MAKE) -f HG_boat_sim/CMakeFiles/bond_generate_messages_cpp.dir/build.make HG_boat_sim/CMakeFiles/bond_generate_messages_cpp.dir/build
+	$(MAKE) -f hg_boat_sim/CMakeFiles/bond_generate_messages_cpp.dir/build.make hg_boat_sim/CMakeFiles/bond_generate_messages_cpp.dir/build
 .PHONY : bond_generate_messages_cpp/fast
 
 #=============================================================================
@@ -1997,7 +1997,7 @@ tf_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 tf_generate_messages_eus/fast:
-	$(MAKE) -f HG_boat_sim/CMakeFiles/tf_generate_messages_eus.dir/build.make HG_boat_sim/CMakeFiles/tf_generate_messages_eus.dir/build
+	$(MAKE) -f hg_boat_sim/CMakeFiles/tf_generate_messages_eus.dir/build.make hg_boat_sim/CMakeFiles/tf_generate_messages_eus.dir/build
 .PHONY : tf_generate_messages_eus/fast
 
 #=============================================================================
@@ -2010,7 +2010,7 @@ wavegauge_plugin: cmake_check_build_system
 
 # fast build rule for target.
 wavegauge_plugin/fast:
-	$(MAKE) -f HG_boat_sim/CMakeFiles/wavegauge_plugin.dir/build.make HG_boat_sim/CMakeFiles/wavegauge_plugin.dir/build
+	$(MAKE) -f hg_boat_sim/CMakeFiles/wavegauge_plugin.dir/build.make hg_boat_sim/CMakeFiles/wavegauge_plugin.dir/build
 .PHONY : wavegauge_plugin/fast
 
 #=============================================================================
@@ -2023,7 +2023,7 @@ tf_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 tf_generate_messages_lisp/fast:
-	$(MAKE) -f HG_boat_sim/CMakeFiles/tf_generate_messages_lisp.dir/build.make HG_boat_sim/CMakeFiles/tf_generate_messages_lisp.dir/build
+	$(MAKE) -f hg_boat_sim/CMakeFiles/tf_generate_messages_lisp.dir/build.make hg_boat_sim/CMakeFiles/tf_generate_messages_lisp.dir/build
 .PHONY : tf_generate_messages_lisp/fast
 
 #=============================================================================
@@ -2036,7 +2036,7 @@ bond_generate_messages_eus: cmake_check_build_system
 
 # fast build rule for target.
 bond_generate_messages_eus/fast:
-	$(MAKE) -f HG_boat_sim/CMakeFiles/bond_generate_messages_eus.dir/build.make HG_boat_sim/CMakeFiles/bond_generate_messages_eus.dir/build
+	$(MAKE) -f hg_boat_sim/CMakeFiles/bond_generate_messages_eus.dir/build.make hg_boat_sim/CMakeFiles/bond_generate_messages_eus.dir/build
 .PHONY : bond_generate_messages_eus/fast
 
 #=============================================================================
@@ -2049,7 +2049,7 @@ controller_manager_msgs_generate_messages_lisp: cmake_check_build_system
 
 # fast build rule for target.
 controller_manager_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f HG_boat_sim/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/build.make HG_boat_sim/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/build
+	$(MAKE) -f hg_boat_sim/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/build.make hg_boat_sim/CMakeFiles/controller_manager_msgs_generate_messages_lisp.dir/build
 .PHONY : controller_manager_msgs_generate_messages_lisp/fast
 
 #=============================================================================
@@ -2062,7 +2062,7 @@ tf_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 tf_generate_messages_nodejs/fast:
-	$(MAKE) -f HG_boat_sim/CMakeFiles/tf_generate_messages_nodejs.dir/build.make HG_boat_sim/CMakeFiles/tf_generate_messages_nodejs.dir/build
+	$(MAKE) -f hg_boat_sim/CMakeFiles/tf_generate_messages_nodejs.dir/build.make hg_boat_sim/CMakeFiles/tf_generate_messages_nodejs.dir/build
 .PHONY : tf_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -2075,7 +2075,7 @@ nodelet_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 nodelet_generate_messages_cpp/fast:
-	$(MAKE) -f HG_boat_sim/CMakeFiles/nodelet_generate_messages_cpp.dir/build.make HG_boat_sim/CMakeFiles/nodelet_generate_messages_cpp.dir/build
+	$(MAKE) -f hg_boat_sim/CMakeFiles/nodelet_generate_messages_cpp.dir/build.make hg_boat_sim/CMakeFiles/nodelet_generate_messages_cpp.dir/build
 .PHONY : nodelet_generate_messages_cpp/fast
 
 #=============================================================================
@@ -2088,7 +2088,7 @@ bond_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 bond_generate_messages_py/fast:
-	$(MAKE) -f HG_boat_sim/CMakeFiles/bond_generate_messages_py.dir/build.make HG_boat_sim/CMakeFiles/bond_generate_messages_py.dir/build
+	$(MAKE) -f hg_boat_sim/CMakeFiles/bond_generate_messages_py.dir/build.make hg_boat_sim/CMakeFiles/bond_generate_messages_py.dir/build
 .PHONY : bond_generate_messages_py/fast
 
 #=============================================================================
@@ -2101,7 +2101,7 @@ controller_manager_msgs_generate_messages_nodejs: cmake_check_build_system
 
 # fast build rule for target.
 controller_manager_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f HG_boat_sim/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/build.make HG_boat_sim/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/build
+	$(MAKE) -f hg_boat_sim/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/build.make hg_boat_sim/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/build
 .PHONY : controller_manager_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
@@ -2114,7 +2114,7 @@ controller_manager_msgs_generate_messages_cpp: cmake_check_build_system
 
 # fast build rule for target.
 controller_manager_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f HG_boat_sim/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/build.make HG_boat_sim/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/build
+	$(MAKE) -f hg_boat_sim/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/build.make hg_boat_sim/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/build
 .PHONY : controller_manager_msgs_generate_messages_cpp/fast
 
 #=============================================================================
@@ -2127,7 +2127,7 @@ LiftDragPlugin: cmake_check_build_system
 
 # fast build rule for target.
 LiftDragPlugin/fast:
-	$(MAKE) -f HG_boat_sim/CMakeFiles/LiftDragPlugin.dir/build.make HG_boat_sim/CMakeFiles/LiftDragPlugin.dir/build
+	$(MAKE) -f hg_boat_sim/CMakeFiles/LiftDragPlugin.dir/build.make hg_boat_sim/CMakeFiles/LiftDragPlugin.dir/build
 .PHONY : LiftDragPlugin/fast
 
 #=============================================================================
@@ -2140,7 +2140,7 @@ ArduPilotPlugin: cmake_check_build_system
 
 # fast build rule for target.
 ArduPilotPlugin/fast:
-	$(MAKE) -f HG_boat_sim/CMakeFiles/ArduPilotPlugin.dir/build.make HG_boat_sim/CMakeFiles/ArduPilotPlugin.dir/build
+	$(MAKE) -f hg_boat_sim/CMakeFiles/ArduPilotPlugin.dir/build.make hg_boat_sim/CMakeFiles/ArduPilotPlugin.dir/build
 .PHONY : ArduPilotPlugin/fast
 
 #=============================================================================
@@ -2153,7 +2153,7 @@ usv_gazebo_dynamics_plugin: cmake_check_build_system
 
 # fast build rule for target.
 usv_gazebo_dynamics_plugin/fast:
-	$(MAKE) -f HG_boat_sim/CMakeFiles/usv_gazebo_dynamics_plugin.dir/build.make HG_boat_sim/CMakeFiles/usv_gazebo_dynamics_plugin.dir/build
+	$(MAKE) -f hg_boat_sim/CMakeFiles/usv_gazebo_dynamics_plugin.dir/build.make hg_boat_sim/CMakeFiles/usv_gazebo_dynamics_plugin.dir/build
 .PHONY : usv_gazebo_dynamics_plugin/fast
 
 #=============================================================================
@@ -2166,7 +2166,7 @@ controller_manager_msgs_generate_messages_py: cmake_check_build_system
 
 # fast build rule for target.
 controller_manager_msgs_generate_messages_py/fast:
-	$(MAKE) -f HG_boat_sim/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/build.make HG_boat_sim/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/build
+	$(MAKE) -f hg_boat_sim/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/build.make hg_boat_sim/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/build
 .PHONY : controller_manager_msgs_generate_messages_py/fast
 
 #=============================================================================
@@ -2179,7 +2179,7 @@ WavefieldVisualPlugin: cmake_check_build_system
 
 # fast build rule for target.
 WavefieldVisualPlugin/fast:
-	$(MAKE) -f HG_boat_sim/CMakeFiles/WavefieldVisualPlugin.dir/build.make HG_boat_sim/CMakeFiles/WavefieldVisualPlugin.dir/build
+	$(MAKE) -f hg_boat_sim/CMakeFiles/WavefieldVisualPlugin.dir/build.make hg_boat_sim/CMakeFiles/WavefieldVisualPlugin.dir/build
 .PHONY : WavefieldVisualPlugin/fast
 
 #=============================================================================
@@ -2192,7 +2192,7 @@ Hydrodynamics: cmake_check_build_system
 
 # fast build rule for target.
 Hydrodynamics/fast:
-	$(MAKE) -f HG_boat_sim/CMakeFiles/Hydrodynamics.dir/build.make HG_boat_sim/CMakeFiles/Hydrodynamics.dir/build
+	$(MAKE) -f hg_boat_sim/CMakeFiles/Hydrodynamics.dir/build.make hg_boat_sim/CMakeFiles/Hydrodynamics.dir/build
 .PHONY : Hydrodynamics/fast
 
 # Help Target

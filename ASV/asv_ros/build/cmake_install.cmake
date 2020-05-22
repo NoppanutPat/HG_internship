@@ -133,7 +133,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/pat/HG_internship/ASV/asv_ros/build/gtest/cmake_install.cmake")
   include("/home/pat/HG_internship/ASV/asv_ros/build/iq_gnc/cmake_install.cmake")
   include("/home/pat/HG_internship/ASV/asv_ros/build/freefloating_gazebo/cmake_install.cmake")
-  include("/home/pat/HG_internship/ASV/asv_ros/build/HG_boat_sim/cmake_install.cmake")
+  include("/home/pat/HG_internship/ASV/asv_ros/build/hg_boat_sim/cmake_install.cmake")
 
 endif()
 
