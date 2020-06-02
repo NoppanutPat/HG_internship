@@ -2,10 +2,13 @@
 import numpy as np
 import imutils
 import cv2
+from PIL import Image
+
 class Stitcher(object):
     def __init__(self):
         self.isv3 = imutils.is_cv3(or_better=True)
-    def stitch(self, images, ratio=0.75, reprojThresh=4.0, showMatches=False):
+
+    def stitch(self, images , ratio=0.75, reprojThresh=4.0, showMatches=False):
         (imageB, imageA) = images
         (kpsA, featuresA) = self.detectAndDescribe(imageA)
         (kpsB, featuresB) = self.detectAndDescribe(imageB)
@@ -19,9 +22,10 @@ class Stitcher(object):
         # otherwise, apply a perspective warp to stitch the images
         # together
         (matches, H, status) = M
-        result = cv2.warpPerspective(imageA, H,
-        	(imageA.shape[1] + imageB.shape[1], imageA.shape[0]))
+        
+        result = cv2.warpPerspective(imageA, H, (imageA.shape[1] + imageB.shape[1], imageA.shape[0]))
         result[0:imageB.shape[0], 0:imageB.shape[1]] = imageB
+
         # check to see if the keypoint matches should be visualized
         if showMatches:
         	vis = self.drawMatches(imageA, imageB, kpsA, kpsB, matches,
@@ -31,6 +35,7 @@ class Stitcher(object):
         	return (result, vis)
         # return the stitched image
         return result
+        
     def detectAndDescribe(self, image):
         # convert the image to grayscale
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)

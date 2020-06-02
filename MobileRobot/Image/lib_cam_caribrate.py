@@ -13,7 +13,7 @@ def undistort(img):
     D = np.array(D)
     # img = cv2.imread(img_path)
     h,w = img.shape[:2]
-    print("H : ",h," , W : ",w)
+    # print("H : ",h," , W : ",w)
     map1, map2 = cv2.fisheye.initUndistortRectifyMap(K, D, np.eye(3), K, DIM, cv2.CV_16SC2)
     undistorted_img = cv2.remap(img, map1, map2, interpolation=cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT)
     # cv2.imshow("undistorted", undistorted_img)
@@ -22,7 +22,7 @@ def undistort(img):
 
 def trim(frame):
     #crop top
-    if not np.sum(frame[0]):
+    if not np.sum(frame[0]) > 5000:
         return trim(frame[1:])
     #crop bottom
     elif not np.sum(frame[-1]):
@@ -31,7 +31,7 @@ def trim(frame):
     elif not np.sum(frame[:,0]):
         return trim(frame[:,1:]) 
     #crop right    
-    elif not np.sum(frame[:,-1]):
+    elif not np.sum(frame[:,-1]) > 5000:
         return trim(frame[:,:-2])  
 
     return frame

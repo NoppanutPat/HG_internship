@@ -1,0 +1,8 @@
+prefix=/home/pat/HG_internship/MobileRobot/mobile-robot-ros/install
+
+Name: mobile-robot
+Description: Description of mobile-robot
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

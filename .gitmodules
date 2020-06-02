@@ -4,3 +4,6 @@
 [submodule "MobileRobot/Panorama"]
 	path = MobileRobot/Panorama
 	url = https://github.com/TejasBob/Panorama.git
+[submodule "MobileRobot/UVIS"]
+	path = MobileRobot/UVIS
+	url = https://github.com/mehmetalideligoz/UVIS.git

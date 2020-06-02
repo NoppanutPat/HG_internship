@@ -1,0 +1,570 @@
+<?xml version="1.0"?>
+<robot name="HG_mobile">
+
+    <macro name="box_inertia" params="m h w d">
+        <inertia  ixx="${m*((h*h)+(d*d))/12}" ixy = "0" ixz = "0"
+                iyy="${m*((w*w)+(d*d))/12}" iyz = "0"
+                izz="${m*((h*h)+(w*w))/12}" /> 
+    </macro>
+
+    <macro name="cylinder_inertia" params="m r h">
+        <inertia  ixx="${m*(3*r*r+h*h)/12}" ixy = "0" ixz = "0"
+                iyy="${m*(3*r*r+h*h)/12}" iyz = "0"
+                izz="${m*r*r/2}" /> 
+    </macro>
+
+    <macro name="sphere_inertia" params="m r">
+        <inertia  ixx="${2*m*r*r/5}" ixy = "0" ixz = "0"
+                iyy="${2*m*r*r/5}" iyz = "0"
+                izz="${2*m*r*r/5}" /> 
+    </macro>
+
+    <property name="PI" value="3.1415926535897931" />
+    <property name="camera_angle" value="${0}" />
+
+<!-- #################################################################################################### -->
+
+    <link name='chassis'>
+        
+        <inertial name="body_inertia">
+            <mass value="5" />
+            <origin rpy="0 0 0" xyz="0 0 0.25"/>
+            <box_inertia m="5" h="0.4" w="1" d="0.3" />
+        </inertial>
+
+        <collision name='collision'>
+            <origin rpy="0 0 0" xyz="0 0 0.25"/>
+            <geometry>
+                <box size="1 0.4 0.3" />
+            </geometry>
+        </collision>
+
+        <visual name='visual'>
+            <origin rpy="0 0 0" xyz="0 0 0.25"/>
+            <geometry>
+                <box size="1 0.4 0.3" />
+            </geometry>
+        </visual>
+
+    </link>
+
+<!-- #################################################################################################### -->
+
+    <link name="left_front_wheel">
+        
+        <inertial>
+            <mass value="0.05"/>
+            <origin rpy="1.5707 0 0" xyz="0 0.025 0"/>
+            <cylinder_inertia  m="0.05" r="0.1" h="0.05" />
+        </inertial>
+        <collision name="collision">
+            <origin rpy="1.5707 0 0" xyz="0 0.025 0"/>
+            <geometry>
+                <cylinder length="0.05" radius="0.1"/>
+            </geometry>
+        </collision>
+        <visual name="visual">
+            <origin rpy="1.5707 0 0" xyz="0 0.025 0"/>
+            <geometry>
+                <cylinder length="0.05" radius="0.1"/>
+            </geometry>
+        </visual>
+
+        <surface>
+            <friction>
+            <ode>
+                <mu>0.01</mu>
+                <mu2>0.01</mu2>
+            </ode>
+            </friction>
+        </surface>
+
+    </link>
+
+    <joint type="continuous" name="left_front_wheel_hinge">
+        <origin rpy="0 0 0" xyz="0.25 0.2 0.1"/>
+        <child link="left_front_wheel" />
+        <parent link="chassis" />
+        <axis xyz="0 1 0" />
+    </joint>
+
+<!-- #################################################################################################### -->
+
+    <link name="right_front_wheel">
+        <inertial>
+            <mass value="0.05"/>
+            <origin rpy="1.5707 0 0" xyz="0 0.025 0"/>
+            <cylinder_inertia  m="0.05" r="0.1" h="0.05" />
+        </inertial>
+        <collision name="collision">
+            <origin rpy="1.5707 0 0" xyz="0 0.025 0"/>
+            <geometry>
+                <cylinder length="0.05" radius="0.1"/>
+            </geometry>
+        </collision>
+        <visual name="visual">
+            <origin rpy="1.5707 0 0" xyz="0 0.025 0"/>
+            <geometry>
+                <cylinder length="0.05" radius="0.1"/>
+            </geometry>
+        </visual>
+        <surface>
+            <friction>
+            <ode>
+                <mu>0.01</mu>
+                <mu2>0.01</mu2>
+            </ode>
+            </friction>
+        </surface>
+
+    </link>
+
+    <joint type="continuous" name="right_front_wheel_hinge">
+        <origin rpy="0 -1.5707 3.1415" xyz="0.25 -0.2 0.1"/>
+        <child link="right_front_wheel" />
+        <parent link="chassis" />
+        <axis xyz="0 1 0" />
+
+    </joint>
+
+
+<!-- #################################################################################################### -->
+
+<link name="left_back_wheel">
+        
+        <inertial>
+            <mass value="0.05"/>
+            <origin rpy="1.5707 0 0" xyz="0 0.025 0"/>
+            <cylinder_inertia  m="0.05" r="0.1" h="0.05" />
+        </inertial>
+        <collision name="collision">
+            <origin rpy="1.5707 0 0" xyz="0 0.025 0"/>
+            <geometry>
+                <cylinder length="0.05" radius="0.1"/>
+            </geometry>
+        </collision>
+        <visual name="visual">
+            <origin rpy="1.5707 0 0" xyz="0 0.025 0"/>
+            <geometry>
+                <cylinder length="0.05" radius="0.1"/>
+            </geometry>
+        </visual>
+
+        <surface>
+            <friction>
+            <ode>
+                <mu>0.01</mu>
+                <mu2>0.01</mu2>
+            </ode>
+            </friction>
+        </surface>
+
+    </link>
+
+    <joint type="continuous" name="left_back_wheel_hinge">
+        <origin rpy="0 0 0" xyz="-0.25 0.2 0.1"/>
+        <child link="left_back_wheel" />
+        <parent link="chassis" />
+        <axis xyz="0 1 0" />
+    </joint>
+
+<!-- #################################################################################################### -->
+
+    <link name="right_back_wheel">
+        <inertial>
+            <mass value="0.05"/>
+            <origin rpy="1.5707 0 0" xyz="0 0.025 0"/>
+            <cylinder_inertia  m="0.05" r="0.1" h="0.05" />
+        </inertial>
+        <collision name="collision">
+            <origin rpy="1.5707 0 0" xyz="0 0.025 0"/>
+            <geometry>
+                <cylinder length="0.05" radius="0.1"/>
+            </geometry>
+        </collision>
+        <visual name="visual">
+            <origin rpy="1.5707 0 0" xyz="0 0.025 0"/>
+            <geometry>
+                <cylinder length="0.05" radius="0.1"/>
+            </geometry>
+        </visual>
+
+        <surface>
+            <friction>
+            <ode>
+                <mu>0.01</mu>
+                <mu2>0.01</mu2>
+            </ode>
+            </friction>
+        </surface>
+
+    </link>
+
+    <joint type="continuous" name="right_back_wheel_hinge">
+        <origin rpy="0 -1.5707 3.1415" xyz="-0.25 -0.2 0.1"/>
+        <child link="right_back_wheel" />
+        <parent link="chassis" />
+        <axis xyz="0 1 0" />
+
+    </joint>
+
+<!-- #################################################################################################### -->
+
+    <link name="camera1_adj"></link>
+
+    <link name='camera1_link'>
+        
+        <inertial name="camera1_inertia">
+            <mass value="0.01" />
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <box_inertia m="0.01" h="0.01" w="0.01" d="0.01" />
+        </inertial>
+
+        <collision name='collision'>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <box size="0.01 0.01 0.01" />
+            </geometry>
+        </collision>
+
+        <visual name='visual'>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <box size="0.01 0.01 0.01" />
+            </geometry>
+        </visual>
+
+    </link>
+
+    <gazebo reference="camera1_link">
+        <sensor type="camera" name="camera1">
+        <update_rate>30.0</update_rate>
+        <camera name="camera1">
+            <horizontal_fov>2.2689</horizontal_fov>
+            <!-- <horizontal_fov>1.0</horizontal_fov> -->
+            <image>
+            <width>1920</width>
+            <height>1080</height>
+            <format>R8G8B8</format>
+            </image>
+            <clip>
+            <near>0.02</near>
+            <far>300</far>
+            </clip>
+            <noise>
+            <type>gaussian</type>
+            <!-- Noise is sampled independently per pixel on each frame.
+                That pixel's noise value is added to each of its color
+                channels, which at that point lie in the range [0,1]. -->
+            <mean>0.0</mean>
+            <stddev>0.007</stddev>
+            </noise>
+        </camera>
+
+        <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+            <alwaysOn>true</alwaysOn>
+            <updateRate>10.0</updateRate>
+            <cameraName>camera1</cameraName>
+            <imageTopicName>image_raw</imageTopicName>
+            <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+            <frameName>camera1_link</frameName>
+            <hackBaseline>1.57</hackBaseline>
+            <distortionK1>0.0</distortionK1>
+            <distortionK2>0.0</distortionK2>
+            <distortionK3>0.0</distortionK3>
+            <distortionT1>0.0</distortionT1>
+            <distortionT2>0.0</distortionT2>
+        </plugin>
+        </sensor>
+    </gazebo>
+
+    <!-- <joint type="fixed" name="camera1_joint">
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <child link="camera_link" />
+        <parent link="chassis" />
+
+    </joint> -->
+
+    <joint name="camera1_optical_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 ${camera_angle} 0" />
+        <parent link="camera1_adj" />
+        <child link="camera1_link"/>
+    </joint>
+
+    <joint name="camera1_joint" type="fixed">
+        <origin xyz="0.5 0 0.4" rpy="0 0 0"/>
+        <parent link="chassis"/>
+        <child link="camera1_adj"/>
+    </joint>
+
+
+<!-- #################################################################################################### -->
+
+    <link name="camera2_adj"></link>
+
+    <link name='camera2_link'>
+        
+        <inertial name="camera2_inertia">
+            <mass value="0.01" />
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <box_inertia m="0.01" h="0.01" w="0.01" d="0.01" />
+        </inertial>
+
+        <collision name='collision'>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <box size="0.01 0.01 0.01" />
+            </geometry>
+        </collision>
+
+        <visual name='visual'>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <box size="0.01 0.01 0.01" />
+            </geometry>
+        </visual>
+
+    </link>
+
+    <gazebo reference="camera2_link">
+        <sensor type="camera" name="camera2">
+        <update_rate>30.0</update_rate>
+        <camera name="camera2">
+            <horizontal_fov>2.2689</horizontal_fov>
+            <!-- <horizontal_fov>1.0</horizontal_fov> -->
+            <image>
+            <width>1920</width>
+            <height>1080</height>
+            <format>R8G8B8</format>
+            </image>
+            <clip>
+            <near>0.02</near>
+            <far>300</far>
+            </clip>
+            <noise>
+            <type>gaussian</type>
+            <!-- Noise is sampled independently per pixel on each frame.
+                That pixel's noise value is added to each of its color
+                channels, which at that point lie in the range [0,1]. -->
+            <mean>0.0</mean>
+            <stddev>0.007</stddev>
+            </noise>
+        </camera>
+
+        <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+            <alwaysOn>true</alwaysOn>
+            <updateRate>10.0</updateRate>
+            <cameraName>camera2</cameraName>
+            <imageTopicName>image_raw</imageTopicName>
+            <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+            <frameName>camera2_link</frameName>
+            <hackBaseline>1.57</hackBaseline>
+            <distortionK1>0.0</distortionK1>
+            <distortionK2>0.0</distortionK2>
+            <distortionK3>0.0</distortionK3>
+            <distortionT1>0.0</distortionT1>
+            <distortionT2>0.0</distortionT2>
+        </plugin>
+        </sensor>
+    </gazebo>
+
+    <!-- <joint type="fixed" name="camera1_joint">
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <child link="camera_link" />
+        <parent link="chassis" />
+
+    </joint> -->
+
+    <joint name="camera2_optical_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 ${camera_angle} ${PI/2}" />
+        <parent link="camera2_adj" />
+        <child link="camera2_link"/>
+    </joint>
+
+    <joint name="camera2_joint" type="fixed">
+        <origin xyz="0 0.2 0.4" rpy="0 0 0"/>
+        <parent link="chassis"/>
+        <child link="camera2_adj"/>
+    </joint>
+
+<!-- #################################################################################################### -->
+
+    <link name="camera3_adj"></link>
+
+    <link name='camera3_link'>
+        
+        <inertial name="camera3_inertia">
+            <mass value="0.01" />
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <box_inertia m="0.01" h="0.01" w="0.01" d="0.01" />
+        </inertial>
+
+        <collision name='collision'>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <box size="0.01 0.01 0.01" />
+            </geometry>
+        </collision>
+
+        <visual name='visual'>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <box size="0.01 0.01 0.01" />
+            </geometry>
+        </visual>
+
+    </link>
+
+    <gazebo reference="camera3_link">
+        <sensor type="camera" name="camera3">
+        <update_rate>30.0</update_rate>
+        <camera name="camera3">
+            <horizontal_fov>2.2689</horizontal_fov>
+            <!-- <horizontal_fov>1.0</horizontal_fov> -->
+            <image>
+            <width>1920</width>
+            <height>1080</height>
+            <format>R8G8B8</format>
+            </image>
+            <clip>
+            <near>0.02</near>
+            <far>300</far>
+            </clip>
+            <noise>
+            <type>gaussian</type>
+            <!-- Noise is sampled independently per pixel on each frame.
+                That pixel's noise value is added to each of its color
+                channels, which at that point lie in the range [0,1]. -->
+            <mean>0.0</mean>
+            <stddev>0.007</stddev>
+            </noise>
+        </camera>
+
+        <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+            <alwaysOn>true</alwaysOn>
+            <updateRate>10.0</updateRate>
+            <cameraName>camera3</cameraName>
+            <imageTopicName>image_raw</imageTopicName>
+            <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+            <frameName>camera3_link</frameName>
+            <hackBaseline>1.57</hackBaseline>
+            <distortionK1>0.0</distortionK1>
+            <distortionK2>0.0</distortionK2>
+            <distortionK3>0.0</distortionK3>
+            <distortionT1>0.0</distortionT1>
+            <distortionT2>0.0</distortionT2>
+        </plugin>
+        </sensor>
+    </gazebo>
+
+    <!-- <joint type="fixed" name="camera1_joint">
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <child link="camera_link" />
+        <parent link="chassis" />
+
+    </joint> -->
+
+    <joint name="camera3_optical_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 ${camera_angle} ${PI}" />
+        <parent link="camera3_adj" />
+        <child link="camera3_link"/>
+    </joint>
+
+    <joint name="camera3_joint" type="fixed">
+        <origin xyz="-0.5 0 0.4" rpy="0 0 0"/>
+        <parent link="chassis"/>
+        <child link="camera3_adj"/>
+    </joint>
+
+
+<!-- #################################################################################################### -->
+
+    <link name="camera4_adj"></link>
+
+    <link name='camera4_link'>
+        
+        <inertial name="camera4_inertia">
+            <mass value="0.01" />
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <box_inertia m="0.01" h="0.01" w="0.01" d="0.01" />
+        </inertial>
+
+        <collision name='collision'>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <box size="0.01 0.01 0.01" />
+            </geometry>
+        </collision>
+
+        <visual name='visual'>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <box size="0.01 0.01 0.01" />
+            </geometry>
+        </visual>
+
+    </link>
+
+    <gazebo reference="camera4_link">
+        <sensor type="camera" name="camera4">
+        <update_rate>30.0</update_rate>
+        <camera name="camera4">
+            <horizontal_fov>2.2689</horizontal_fov>
+            <!-- <horizontal_fov>1.0</horizontal_fov> -->
+            <image>
+            <width>1920</width>
+            <height>1080</height>
+            <format>R8G8B8</format>
+            </image>
+            <clip>
+            <near>0.02</near>
+            <far>300</far>
+            </clip>
+            <noise>
+            <type>gaussian</type>
+            <!-- Noise is sampled independently per pixel on each frame.
+                That pixel's noise value is added to each of its color
+                channels, which at that point lie in the range [0,1]. -->
+            <mean>0.0</mean>
+            <stddev>0.007</stddev>
+            </noise>
+        </camera>
+
+        <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+            <alwaysOn>true</alwaysOn>
+            <updateRate>10.0</updateRate>
+            <cameraName>camera4</cameraName>
+            <imageTopicName>image_raw</imageTopicName>
+            <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+            <frameName>camera4_link</frameName>
+            <hackBaseline>1.57</hackBaseline>
+            <distortionK1>0.0</distortionK1>
+            <distortionK2>0.0</distortionK2>
+            <distortionK3>0.0</distortionK3>
+            <distortionT1>0.0</distortionT1>
+            <distortionT2>0.0</distortionT2>
+        </plugin>
+        </sensor>
+    </gazebo>
+
+    <!-- <joint type="fixed" name="camera1_joint">
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <child link="camera_link" />
+        <parent link="chassis" />
+
+    </joint> -->
+
+    <joint name="camera4_optical_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 ${camera_angle} ${-PI/2}" />
+        <parent link="camera4_adj" />
+        <child link="camera4_link"/>
+    </joint>
+
+    <joint name="camera4_joint" type="fixed">
+        <origin xyz="0 -0.2 0.4" rpy="0 0 0"/>
+        <parent link="chassis"/>
+        <child link="camera4_adj"/>
+    </joint>
+
+
+</robot>
